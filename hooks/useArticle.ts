@@ -8,6 +8,6 @@ export const useGetArticles = (searchQuery?: string) => {
     return useQuery({
         queryKey: [GET_ARTICLES, searchQuery],
         queryFn: () => articleService.getArticles({ q: searchQuery, language: "en" }),
-        enabled: true,
+        enabled: !!searchQuery,
     });
 };
